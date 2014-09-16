@@ -13,6 +13,7 @@ socket.bind(null, null, function() {
   var address = socket.address();
   console.log('Listening: ' + address.address + ':' + address.port);
   socket.addMembership('224.0.0.115');
+  socket.setMulticastLoopback(true);
 });
 
 socket.on('message', function(msg, rinfo) {
@@ -21,7 +22,7 @@ socket.on('message', function(msg, rinfo) {
 
 setInterval(function() {
   var data = {
-    'device': 'flame-0d3ed178',
+    'device': 'bob',
     'services': {
       'devtools': {
         'port': 40257
